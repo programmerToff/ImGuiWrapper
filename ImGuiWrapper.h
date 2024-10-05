@@ -117,13 +117,13 @@ namespace ImGui {
         window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
         window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 
-        ImGui::Begin("DockSpace Demo", nullptr, window_flags);
-        ImGui::PopStyleVar(2);
+        ImGui::Begin("Main Dockspace", nullptr, window_flags);
+	ImGui::PopStyleVar(2);
 
-        ImGuiIO& io = ImGui::GetIO();
-        ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
-        ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_None);
-        return dockspace_id;
+	ImGuiIO& io = ImGui::GetIO();
+	ImGuiID main_dockspace_id = ImGui::GetID("MainDockspace");
+	ImGui::DockSpace(main_dockspace_id, ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_None);
+	return main_dockspace_id;
     }
 
     Window::Window(std::string name, int w, int h)
